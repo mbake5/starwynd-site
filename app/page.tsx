@@ -1,6 +1,6 @@
 export default function Home() {
 
-    const getTrackStyle = (title) => {
+    const getTrackStyle = (title: string): string => {
     const styles = [
       "from-cyan-400/30 via-indigo-500/20 to-black",
       "from-pink-500/20 via-purple-500/20 to-black",
