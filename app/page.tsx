@@ -59,14 +59,14 @@ export default function Home() {
                 <div 
                   className="absolute inset-0 z-0 pointer-events-none transform"
                   style={{
-                    animation: 'cinematicZoom 12s ease-in-out infinite alternate'
+                    animation: 'cinematicZoom 15s ease-in-out infinite alternate'
                   }}
                 >
                   {/* Injecting the necessary CSS keyframe block directly */}
                   <style>{`
                     @keyframes cinematicZoom {
                       0% { transform: scale(1.02); }
-                      100% { transform: scale(1.15); }
+                      100% { transform: scale(1.25); }
                     }
                   `}</style>
           <Image
