@@ -189,13 +189,13 @@ export default function Home() {
           <h2 className="text-sm font-mono text-cyan-400 mb-4 tracking-[0.4em] uppercase">Inquiries</h2>
           <h3 className="text-4xl font-black mb-6 tracking-tight">Get in Touch</h3>
           <p className="text-gray-400 mb-10 font-light leading-relaxed">
-            For professional inquiries, production collaborations, or information regarding the Starwynd project.
+            For professional inquiries, production collaborations, or information regarding Starwynd.
           </p>
           <button 
             onClick={handleEmailClick}
             className="w-full sm:w-auto px-10 py-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white hover:text-black hover:scale-105 transition-all duration-300 font-semibold tracking-wider text-sm flex items-center justify-center gap-2 mx-auto"
           >
-            <Mail size={16} /> Email Management
+            <Mail size={16} /> Email
           </button>
         </div>
       </section>
