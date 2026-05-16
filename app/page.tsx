@@ -52,25 +52,37 @@ export default function Home() {
         </div>
       </nav>
 
-{/* HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
+      {/* HERO SECTION WITH FULL CONTRAST PARALLAX BANNER */}
+      <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden bg-attachment-fixed">
         
-        {/* BRIGHTER, HIGHER-CONTRAST HERO BACKGROUND */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-85 sm:opacity-75">
+        {/* INFINITE SMOOTH ZOOM BACKDROP */}
+                <div 
+                  className="absolute inset-0 z-0 pointer-events-none transform"
+                  style={{
+                    animation: 'cinematicZoom 12s ease-in-out infinite alternate'
+                  }}
+                >
+                  {/* Injecting the necessary CSS keyframe block directly */}
+                  <style>{`
+                    @keyframes cinematicZoom {
+                      0% { transform: scale(1.02); }
+                      100% { transform: scale(1.15); }
+                    }
+                  `}</style>
           <Image
-            src="/images/banner.webp"
-            alt="Starwynd Spotify Banner"
+            src="/images/background4k.webp"
+            alt="Starwynd Hero Backdrop"
             fill
             priority
-            className="object-cover object-center filter brightness-110 contrast-105"
+            className="object-cover object-center filter brightness-100 contrast-100"
             sizes="100vw"
           />
         </div>
 
-        {/* Softened blending layers so the banner details aren't crushed on mobile devices */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/30 to-[#050505] md:from-black/10 md:via-black/40 z-1" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_50%,#050505_100%)] md:bg-[radial-gradient(circle_at_center,transparent_40%,#050505_100%)] z-1" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-cyan-500/5 rounded-full blur-[80px] md:blur-[140px] pointer-events-none z-1" />
+        {/* Ambient blending layers to preserve text readability without crushing image details */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-[#050505] z-1" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,#050505_100%)] opacity-80 z-1" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none z-1" />
 
         <div className="relative z-10 max-w-4xl mt-16">
           <p className="tracking-[0.45em] text-cyan-400 uppercase text-xs md:text-sm mb-6 font-mono">
@@ -107,18 +119,19 @@ export default function Home() {
       {/* ABOUT SECTION */}
       <section id="about" className="max-w-6xl mx-auto px-6 py-32 grid md:grid-cols-2 gap-16 scroll-mt-24 items-center">
         
-        {/* LEFT COLUMN: PERFECTLY BLENDED BRAND LOGO WITH ENHANCED SCALING */}
-        <div className="relative flex items-center justify-center min-h-[320px] group order-2 md:order-1">
-          {/* Wide, misty atmospheric back-glow instead of a harsh circle */}
-          <div className="absolute w-72 h-72 bg-gradient-to-r from-cyan-500/10 to-indigo-500/5 rounded-full blur-[100px] group-hover:opacity-150 transition-all duration-1000 pointer-events-none" />
+        {/* LEFT COLUMN: OFFICIAL BANNER ARTWORK IMMERSED IN FRAME WITH CUSTOM HORIZONTAL POSITIONING */}
+        <div className="relative flex items-center justify-center min-h-[240px] md:min-h-[320px] group order-2 md:order-1 w-full">
+          {/* Subtle atmospheric back-glow behind the canvas border */}
+          <div className="absolute w-full h-full max-w-[480px] bg-gradient-to-r from-cyan-500/10 to-indigo-500/5 rounded-3xl blur-[60px] group-hover:opacity-150 transition-all duration-1000 pointer-events-none" />
           
-          <div className="relative z-10 p-4 transition-transform duration-700 group-hover:scale-108">
+          <div className="relative z-10 w-full max-w-[480px] aspect-[16/9] md:aspect-[3/2] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 shadow-2xl transition-transform duration-700 group-hover:scale-105 group-hover:border-cyan-500/20">
             <Image 
-              src="/images/logo.webp" 
-              alt="Starwynd Logo Identity" 
-              width={280}
-              height={280}
-              className="object-contain mix-blend-screen opacity-90 group-hover:opacity-100 transition-opacity duration-700"
+              src="/images/banner.webp" 
+              alt="Starwynd Official Banner Artwork" 
+              fill
+              priority
+              className="object-cover object-[25%_center] opacity-90 group-hover:opacity-100 transition-opacity duration-700"
+              sizes="(max-width: 768px) 100vw, 480px"
             />
           </div>
         </div>
@@ -203,7 +216,7 @@ export default function Home() {
                   <p className="text-gray-400 text-sm font-light mb-5 leading-relaxed h-10 overflow-hidden text-ellipsis">{track.desc}</p>
                   <div className="flex items-center justify-between border-t border-white/5 pt-4">
                     <span className="text-xs font-mono text-gray-500">Platform // Spotify</span>
-                    <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/5 group-hover:bg-cyan-400 group-hover:text-black font-mono text-xs uppercase tracking-wider transition-all duration-300">Listen</span>
+                    <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/5 group-hover:bg-cyan-400 group-hover:text-black font-mono text-xs uppercase tracking-wider transition-all duration-300">Stream</span>
                   </div>
                 </div>
               </a>
