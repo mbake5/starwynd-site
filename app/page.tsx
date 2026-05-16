@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import { ExternalLink, Disc, Mail, Coffee } from 'lucide-react';
 
 export default function Home() {
@@ -30,7 +31,6 @@ export default function Home() {
     return styles[Math.abs(hash) % styles.length];
   };
 
-  // 3. The actual visual page
   return (
     <main className="min-h-screen text-white overflow-x-hidden bg-[#050505] selection:bg-cyan-500/30">
 
@@ -52,15 +52,25 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* HERO */}
+      {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center scale-110 animate-slowZoom origin-center pointer-events-none"
-          style={{ backgroundImage: "url('/images/background4k.webp')" }}
-        />
-        {/* Deep ambient visual overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-[#050505]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
+        
+        {/* BRIGHTER, HIGHER-CONTRAST HERO BACKGROUND */}
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-55">
+          <Image
+            src="/images/banner.webp"
+            alt="Starwynd Spotify Banner"
+            fill
+            priority
+            className="object-cover object-center filter brightness-105 contrast-105"
+            sizes="100vw"
+          />
+        </div>
+
+        {/* Softened blending layers so the banner details aren't crushed */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-[#050505] z-1" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,#050505_100%)] z-1" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none z-1" />
 
         <div className="relative z-10 max-w-4xl mt-16">
           <p className="tracking-[0.45em] text-cyan-400 uppercase text-xs md:text-sm mb-6 font-mono">
@@ -94,35 +104,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="max-w-6xl mx-auto px-6 py-32 grid md:grid-cols-2 gap-16 scroll-mt-24">
-        <div className="flex flex-col justify-center">
+      {/* ABOUT SECTION */}
+      <section id="about" className="max-w-6xl mx-auto px-6 py-32 grid md:grid-cols-2 gap-16 scroll-mt-24 items-center">
+        
+        {/* LEFT COLUMN: PERFECTLY BLENDED BRAND LOGO WITH ENHANCED SCALING */}
+        <div className="relative flex items-center justify-center min-h-[320px] group order-2 md:order-1">
+          {/* Wide, misty atmospheric back-glow instead of a harsh circle */}
+          <div className="absolute w-72 h-72 bg-gradient-to-r from-cyan-500/10 to-indigo-500/5 rounded-full blur-[100px] group-hover:opacity-150 transition-all duration-1000 pointer-events-none" />
+          
+          <div className="relative z-10 p-4 transition-transform duration-700 group-hover:scale-108">
+            <Image 
+              src="/images/logo.webp" 
+              alt="Starwynd Logo Identity" 
+              width={280}
+              height={280}
+              className="object-contain mix-blend-screen opacity-90 group-hover:opacity-100 transition-opacity duration-700"
+            />
+          </div>
+        </div>
+
+        {/* RIGHT COLUMN: TEXT CONTENT */}
+        <div className="flex flex-col justify-center order-1 md:order-2">
           <h2 className="text-sm font-mono text-cyan-400 mb-4 tracking-[0.4em] uppercase">The Concept</h2>
           <h3 className="text-4xl font-black mb-6 tracking-tight">About</h3>
 
-          <p className="text-gray-400 font-light leading-relaxed mb-6 text-lg">
-            Starwynd creates cinematic music rooted in emotional storytelling and atmospheric soundscapes. This evolution marks a deeper, more intentional era of the sound, centered on human-led production and professional studio collaboration.
+          <p className="text-gray-400 font-light leading-relaxed mb-6 text-base md:text-lg">
+            Starwynd creates cinematic music rooted in emotional storytelling and atmospheric soundscapes. The current chapter marks an intentional shift to human produced music and professional studio collaboration.
           </p>
 
-          <p className="text-gray-400 font-light leading-relaxed">
-            Through handcrafted arrangements and intentional mixing, every track is built with purpose. Vocals are treated as a vital instrument within the ensemble—refined and woven into the production to become a seamless, living part of the music.
+          <p className="text-gray-400 font-light leading-relaxed text-base md:text-lg">
+            Every track is built with purpose through handcrafted arrangements and intentional mixing. Vocals are treated as a vital instrument within the production architecture. They are refined and woven into the mix to become a seamless, living part of the music.
           </p>
         </div>
+      </section>
 
-        <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-8 backdrop-blur-md flex flex-col justify-center space-y-8">
+      {/* DETAILED STATS ROW WITH PROPORTIONAL COLUMN BALANCING */}
+      <section className="max-w-6xl mx-auto px-6 pb-32">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.3fr_1fr] gap-8 bg-white/[0.01] border border-white/5 rounded-3xl p-8 backdrop-blur-md">
           <div>
             <p className="text-cyan-400/60 text-xs font-mono uppercase tracking-widest mb-1">Genre</p>
             <p className="text-xl font-medium tracking-wide">Atmospheric Pop</p>
           </div>
-
-          <div className="border-t border-white/5 pt-6">
+          <div className="border-t md:border-t-0 md:border-l border-white/5 pt-6 md:pt-0 md:pl-8">
             <p className="text-cyan-400/60 text-xs font-mono uppercase tracking-widest mb-1">Style</p>
-            <p className="text-xl font-medium tracking-wide">Atmospheric • Emotional • Cinematic</p>
+            <p className="text-xl font-medium tracking-wide whitespace-nowrap">Atmospheric • Emotional • Cinematic</p>
           </div>
-
-          <div className="border-t border-white/5 pt-6">
+          <div className="border-t md:border-t-0 md:border-l border-white/5 pt-6 md:pt-0 md:pl-8">
             <p className="text-cyan-400/60 text-xs font-mono uppercase tracking-widest mb-1">Sound Architecture</p>
-            <p className="text-xl font-medium tracking-wide">Human-Led Hybrid Production</p>
+            <p className="text-xl font-medium tracking-wide">Human-Led Production</p>
           </div>
         </div>
       </section>
@@ -174,7 +203,7 @@ export default function Home() {
                   <p className="text-gray-400 text-sm font-light mb-5 leading-relaxed h-10 overflow-hidden text-ellipsis">{track.desc}</p>
                   <div className="flex items-center justify-between border-t border-white/5 pt-4">
                     <span className="text-xs font-mono text-gray-500">Platform // Spotify</span>
-                    <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/5 group-hover:bg-cyan-400 group-hover:text-black font-mono text-xs uppercase tracking-wider transition-all duration-300">Launch</span>
+                    <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/5 group-hover:bg-cyan-400 group-hover:text-black font-mono text-xs uppercase tracking-wider transition-all duration-300">Listen</span>
                   </div>
                 </div>
               </a>
