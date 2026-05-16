@@ -56,7 +56,7 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
         
         {/* BRIGHTER, HIGHER-CONTRAST HERO BACKGROUND */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-55">
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-90">
           <Image
             src="/images/banner.webp"
             alt="Starwynd Spotify Banner"
