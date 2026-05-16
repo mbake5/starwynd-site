@@ -160,7 +160,13 @@ export default function Home() {
           </div>
           <div className="border-t md:border-t-0 md:border-l border-white/5 pt-6 md:pt-0 md:pl-8">
             <p className="text-cyan-400/60 text-xs font-mono uppercase tracking-widest mb-1">Style</p>
-            <p className="text-xl font-medium tracking-wide whitespace-nowrap">Atmospheric • Emotional • Cinematic</p>
+            <div className="flex flex-wrap md:flex-nowrap md:whitespace-nowrap gap-x-2 gap-y-1 text-xl font-medium tracking-wide">
+              <span>Atmospheric</span>
+              <span className="text-white/30">•</span>
+              <span>Emotional</span>
+              <span className="text-white/30">•</span>
+              <span>Cinematic</span>
+            </div>
           </div>
           <div className="border-t md:border-t-0 md:border-l border-white/5 pt-6 md:pt-0 md:pl-8">
             <p className="text-cyan-400/60 text-xs font-mono uppercase tracking-widest mb-1">Sound Architecture</p>
