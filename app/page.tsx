@@ -40,17 +40,18 @@ export default async function Home() {
       </div>
 
       {/* NAVIGATION */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.05] bg-black/45 px-6 py-4 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.45)] md:px-12">
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.05] bg-black/45 px-4 py-3.5 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.45)] sm:px-6 sm:py-4 md:px-12">
+
         <div className="mx-auto flex max-w-7xl items-center justify-between">
 
           <a
             href="#top"
-            className="pl-[0.6em] text-sm font-black tracking-[0.6em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400"
+            className="pl-[0.55em] text-[12px] font-black tracking-[0.48em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400 sm:text-sm sm:tracking-[0.6em]"
           >
             STARWYND
           </a>
 
-          <div className="flex items-center gap-5 text-[12px] font-mono uppercase tracking-[0.2em] text-neutral-400 md:gap-8">
+          <div className="flex items-center gap-3 text-[11px] font-mono uppercase tracking-[0.16em] text-neutral-400 sm:gap-5 sm:text-[12px] sm:tracking-[0.2em] md:gap-8">
 
             <a
               href="#about"
@@ -84,10 +85,10 @@ export default async function Home() {
               href="https://ko-fi.com/starwynd"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/[0.04] px-3.5 py-1.5 text-[12px] text-cyan-400 transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500/10 hover:text-white"
+              className="flex items-center gap-1 rounded-full border border-cyan-500/30 bg-cyan-500/[0.04] px-2.5 py-1.5 text-[11px] text-cyan-400 transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500/10 hover:text-white sm:gap-1.5 sm:px-3.5 sm:text-[12px]"
             >
               Support
-              <ExternalLink size={11} />
+              <ExternalLink size={10} className="sm:h-[11px] sm:w-[11px]" />
             </a>
 
           </div>
@@ -97,42 +98,42 @@ export default async function Home() {
       {/* HERO */}
       <section
         id="top"
-        className="relative z-10 flex min-h-screen items-center justify-center overflow-hidden px-6 text-center"
+        className="relative z-10 flex min-h-screen items-center justify-center overflow-hidden px-5 text-center sm:px-6"
       >
 
-        <div className="absolute left-1/2 top-1/2 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/[0.035] blur-[150px]" />
+        <div className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/[0.035] blur-[110px] sm:h-[550px] sm:w-[550px] sm:blur-[135px] md:h-[650px] md:w-[650px] md:blur-[150px]" />
 
-        <div className="relative mx-auto mt-16 max-w-5xl px-4">
+        <div className="relative mx-auto mt-12 max-w-5xl px-2 sm:mt-16 sm:px-4">
 
-          <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-white/[0.07] bg-black/20 px-4 py-2 backdrop-blur-md">
+          <div className="mx-auto mb-6 inline-flex max-w-full items-center gap-2 rounded-full border border-white/[0.07] bg-black/20 px-3 py-2 backdrop-blur-md sm:mb-7 sm:gap-3 sm:px-4">
 
-            <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.8)]" />
+            <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.8)]" />
 
-            <span className="font-mono text-[13px] uppercase tracking-[0.25em] text-neutral-300">
+            <span className="font-mono text-[11px] leading-5 uppercase tracking-[0.12em] text-neutral-300 sm:text-[12px] sm:tracking-[0.2em] md:text-[13px] md:tracking-[0.25em]">
               Cinematic • Atmospheric • Emotional
             </span>
 
           </div>
 
-          <h1 className="mb-7 text-6xl font-black tracking-[-0.055em] bg-gradient-to-b from-white via-neutral-100 to-neutral-500 bg-clip-text text-transparent drop-shadow-2xl sm:text-7xl md:text-9xl">
+          <h1 className="mb-6 text-5xl font-black tracking-[-0.055em] bg-gradient-to-b from-white via-neutral-100 to-neutral-500 bg-clip-text text-transparent drop-shadow-2xl sm:mb-7 sm:text-7xl md:text-9xl">
             STARWYND
           </h1>
 
-          <p className="mx-auto mb-5 max-w-2xl text-xl font-light leading-relaxed tracking-wide text-neutral-200 sm:text-2xl">
+          <p className="mx-auto mb-5 max-w-2xl text-lg font-light leading-relaxed tracking-wide text-neutral-200 sm:text-xl md:text-2xl">
             Music that lives between light and shadow.
           </p>
 
-          <p className="mx-auto mb-12 max-w-xl text-[15px] font-light leading-7 tracking-wide text-neutral-400 md:text-base">
+          <p className="mx-auto mb-10 max-w-xl text-[14px] font-light leading-7 tracking-wide text-neutral-400 sm:mb-12 sm:text-[15px] md:text-base">
             Built around human production, emotional storytelling, and atmospheric electronic soundscapes.
           </p>
 
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
 
             <a
               href="https://open.spotify.com/artist/5qyoyaRsxcHKln2TxqoUgL"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-60 items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-[12px] font-bold uppercase tracking-widest text-black transition-all duration-300 hover:scale-105 hover:bg-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]"
+              className="flex w-full max-w-xs items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-[12px] font-bold uppercase tracking-widest text-black transition-all duration-300 hover:scale-105 hover:bg-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] sm:w-60 sm:px-8"
             >
               <Disc size={15} className="animate-spin-slow" />
               Listen on Spotify
@@ -140,7 +141,7 @@ export default async function Home() {
 
             <a
               href="#music"
-              className="flex w-60 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-8 py-4 font-mono text-[12px] uppercase tracking-widest text-neutral-300 backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:text-white"
+              className="flex w-full max-w-xs items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-7 py-4 font-mono text-[12px] uppercase tracking-widest text-neutral-300 backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:text-white sm:w-60 sm:px-8"
             >
               Explore the Music
               <ArrowUpRight size={13} />
@@ -153,28 +154,28 @@ export default async function Home() {
       {/* ABOUT */}
       <section
         id="about"
-        className="relative z-10 mx-auto my-20 max-w-6xl scroll-mt-24 px-6 md:px-12"
+        className="relative z-10 mx-auto my-12 max-w-6xl scroll-mt-20 px-4 sm:my-20 sm:px-6 md:px-12"
       >
 
-        <div className="overflow-hidden rounded-3xl border border-white/[0.06] bg-neutral-900/45 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.45)] backdrop-blur-xl md:p-14">
+        <div className="overflow-hidden rounded-3xl border border-white/[0.06] bg-neutral-900/45 p-7 shadow-[0_20px_50px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:p-8 md:p-14">
 
-          <div className="grid gap-12 md:grid-cols-[170px_1fr] md:gap-16">
+          <div className="grid gap-9 sm:gap-12 md:grid-cols-[170px_1fr] md:gap-16">
 
             <div>
               <div className="mb-5 h-px w-12 bg-cyan-500/60" />
 
-              <p className="pl-[0.45em] font-mono text-[11px] uppercase tracking-[0.45em] text-cyan-400">
+              <p className="pl-[0.45em] font-mono text-[11px] uppercase tracking-[0.4em] text-cyan-400 sm:tracking-[0.45em]">
                 The Concept
               </p>
             </div>
 
             <div className="max-w-3xl">
 
-              <h2 className="mb-7 text-4xl font-black tracking-tight bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent md:text-5xl">
+              <h2 className="mb-6 text-3xl font-black tracking-tight bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent sm:mb-7 sm:text-4xl md:text-5xl">
                 About Starwynd
               </h2>
 
-              <p className="mb-6 text-[15px] font-light leading-8 tracking-wide text-neutral-300 md:text-base">
+              <p className="mb-5 text-[15px] font-light leading-8 tracking-wide text-neutral-300 sm:mb-6 md:text-base">
                 Starwynd creates cinematic music rooted in emotional storytelling and atmospheric soundscapes. The current chapter marks an intentional shift toward human-produced music and professional studio collaboration.
               </p>
 
@@ -188,29 +189,29 @@ export default async function Home() {
       </section>
 
       {/* STATS */}
-      <section className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
+      <section className="relative z-10 mx-auto max-w-6xl px-4 pb-16 sm:px-6 sm:pb-24">
 
         <div className="grid overflow-hidden rounded-2xl border border-white/[0.06] bg-neutral-900/40 backdrop-blur-2xl shadow-[0_15px_35px_rgba(0,0,0,0.3)] md:grid-cols-[1fr_1.3fr_1fr]">
 
-          <div className="p-7 md:p-8">
+          <div className="p-6 sm:p-7 md:p-8">
 
             <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-cyan-400/60">
               Genre
             </p>
 
-            <p className="text-lg font-medium tracking-wide text-neutral-200">
+            <p className="text-base font-medium tracking-wide text-neutral-200 sm:text-lg">
               Atmospheric Pop
             </p>
 
           </div>
 
-          <div className="border-t border-white/[0.08] p-7 md:border-l md:border-t-0 md:p-8">
+          <div className="border-t border-white/[0.08] p-6 sm:p-7 md:border-l md:border-t-0 md:p-8">
 
             <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-cyan-400/60">
               Style
             </p>
 
-            <div className="flex flex-wrap gap-x-2 gap-y-1 text-lg font-medium tracking-wide text-neutral-200">
+            <div className="flex flex-wrap gap-x-2 gap-y-1 text-base font-medium tracking-wide text-neutral-200 sm:text-lg">
               <span>Atmospheric</span>
               <span className="text-neutral-600">•</span>
               <span>Emotional</span>
@@ -220,13 +221,13 @@ export default async function Home() {
 
           </div>
 
-          <div className="border-t border-white/[0.08] p-7 md:border-l md:border-t-0 md:p-8">
+          <div className="border-t border-white/[0.08] p-6 sm:p-7 md:border-l md:border-t-0 md:p-8">
 
             <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-cyan-400/60">
               Sound Architecture
             </p>
 
-            <p className="text-lg font-medium tracking-wide text-neutral-200">
+            <p className="text-base font-medium tracking-wide text-neutral-200 sm:text-lg">
               Human-Led Production
             </p>
 
@@ -238,20 +239,20 @@ export default async function Home() {
       {/* MUSIC */}
       <section
         id="music"
-        className="relative z-10 scroll-mt-24 bg-gradient-to-b from-neutral-950/30 to-transparent px-6 py-28 md:py-32"
+        className="relative z-10 scroll-mt-20 bg-gradient-to-b from-neutral-950/30 to-transparent px-4 py-20 sm:px-6 sm:py-28 md:py-32"
       >
 
         <div className="mx-auto max-w-6xl">
 
-          <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="mb-8 flex flex-col justify-between gap-5 sm:mb-12 sm:gap-6 md:flex-row md:items-end">
 
             <div>
 
-              <p className="mb-2 pl-[0.45em] font-mono text-[11px] uppercase tracking-[0.45em] text-cyan-400">
+              <p className="mb-2 pl-[0.45em] font-mono text-[11px] uppercase tracking-[0.4em] text-cyan-400 sm:tracking-[0.45em]">
                 Discography
               </p>
 
-              <h2 className="text-4xl font-black tracking-tight bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent md:text-5xl">
+              <h2 className="text-3xl font-black tracking-tight bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
                 Featured Tracks
               </h2>
 
@@ -270,7 +271,7 @@ export default async function Home() {
           </div>
 
           {/* SPOTIFY PLAYLIST */}
-          <div className="mb-16 overflow-hidden rounded-2xl border border-white/[0.06] bg-neutral-900/40 p-3 shadow-2xl backdrop-blur-xl">
+          <div className="mb-10 overflow-hidden rounded-2xl border border-white/[0.06] bg-neutral-900/40 p-2.5 shadow-2xl backdrop-blur-xl sm:mb-16 sm:p-3">
 
             <iframe
               style={{ borderRadius: "12px" }}
@@ -280,14 +281,14 @@ export default async function Home() {
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
               title="Starwynd Spotify Playlist"
-              className="opacity-90 transition-opacity duration-300 hover:opacity-100"
+              className="h-[300px] opacity-90 transition-opacity duration-300 hover:opacity-100 sm:h-[350px] md:h-[380px]"
             />
 
           </div>
 
           {/* AUTOMATIC FEATURED TRACK TILES */}
           {featuredTracks.length > 0 ? (
-            <div className="grid gap-7 md:grid-cols-3">
+            <div className="grid gap-6 sm:gap-7 md:grid-cols-3">
 
               {featuredTracks.map((track, index) => (
 
@@ -318,12 +319,12 @@ export default async function Home() {
 
                       <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/30" />
 
-                      <div className="absolute left-5 top-5 rounded-full border border-white/10 bg-black/50 px-3 py-1.5 font-mono text-[11px] tracking-widest text-white/85 backdrop-blur-md">
+                      <div className="absolute left-4 top-4 rounded-full border border-white/10 bg-black/50 px-3 py-1.5 font-mono text-[11px] tracking-widest text-white/85 backdrop-blur-md sm:left-5 sm:top-5">
                         {String(index + 1).padStart(2, "0")} / 03
                       </div>
 
                       {index === 0 && (
-                        <div className="absolute right-5 top-5 rounded-full border border-cyan-400/30 bg-cyan-500/15 px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest text-cyan-300 backdrop-blur-md">
+                        <div className="absolute right-4 top-4 rounded-full border border-cyan-400/30 bg-cyan-500/15 px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest text-cyan-300 backdrop-blur-md sm:right-5 sm:top-5">
                           Latest
                         </div>
                       )}
@@ -339,7 +340,7 @@ export default async function Home() {
 
                   </a>
 
-                  <div className="p-6">
+                  <div className="p-5 sm:p-6">
 
                     <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-cyan-400">
                       {index === 0 ? "Latest Release" : "Featured Track"}
@@ -383,7 +384,7 @@ export default async function Home() {
           )}
 
           {/* COMPLETE CATALOG */}
-          <div className="mt-12 text-center">
+          <div className="mt-10 text-center sm:mt-12">
 
             <a
               href="https://open.spotify.com/playlist/78oYJUxVuPHAAt7FJaLrZv"
@@ -403,14 +404,14 @@ export default async function Home() {
       {/* CONNECT */}
       <section
         id="connect"
-        className="relative z-10 scroll-mt-24 px-6 py-24"
+        className="relative z-10 scroll-mt-20 px-4 py-20 sm:px-6 sm:py-24"
       >
 
         <div className="mx-auto max-w-5xl">
 
-          <div className="mb-10 text-center">
+          <div className="mb-8 text-center sm:mb-10">
 
-            <p className="mb-2 pl-[0.45em] font-mono text-[11px] uppercase tracking-[0.45em] text-cyan-400">
+            <p className="mb-2 pl-[0.45em] font-mono text-[11px] uppercase tracking-[0.4em] text-cyan-400 sm:tracking-[0.45em]">
               Connect
             </p>
 
@@ -426,7 +427,7 @@ export default async function Home() {
               href="https://open.spotify.com/artist/5qyoyaRsxcHKln2TxqoUgL"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between rounded-2xl border border-white/[0.06] bg-neutral-900/40 p-6 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/30 hover:bg-neutral-900/60"
+              className="group flex items-center justify-between rounded-2xl border border-white/[0.06] bg-neutral-900/40 p-5 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/30 hover:bg-neutral-900/60 sm:p-6"
             >
 
               <div className="flex items-center gap-4">
@@ -456,7 +457,7 @@ export default async function Home() {
               href="https://music.apple.com/us/artist/starwynd/1841275156"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between rounded-2xl border border-white/[0.06] bg-neutral-900/40 p-6 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/30 hover:bg-neutral-900/60"
+              className="group flex items-center justify-between rounded-2xl border border-white/[0.06] bg-neutral-900/40 p-5 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/30 hover:bg-neutral-900/60 sm:p-6"
             >
 
               <div className="flex items-center gap-4">
@@ -486,7 +487,7 @@ export default async function Home() {
               href="https://music.amazon.co.uk/artists/B0FS14KVWX/starwynd"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between rounded-2xl border border-white/[0.06] bg-neutral-900/40 p-6 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/30 hover:bg-neutral-900/60"
+              className="group flex items-center justify-between rounded-2xl border border-white/[0.06] bg-neutral-900/40 p-5 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/30 hover:bg-neutral-900/60 sm:p-6"
             >
 
               <div className="flex items-center gap-4">
@@ -516,7 +517,7 @@ export default async function Home() {
               href="https://www.youtube.com/channel/UCGNTkRr6hq3KRmKNvrSVxBg"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between rounded-2xl border border-white/[0.06] bg-neutral-900/40 p-6 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/30 hover:bg-neutral-900/60"
+              className="group flex items-center justify-between rounded-2xl border border-white/[0.06] bg-neutral-900/40 p-5 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/30 hover:bg-neutral-900/60 sm:p-6"
             >
 
               <div className="flex items-center gap-4">
@@ -549,12 +550,12 @@ export default async function Home() {
       {/* CONTACT */}
       <section
         id="contact"
-        className="relative z-10 scroll-mt-24 px-6 py-32 text-center"
+        className="relative z-10 scroll-mt-20 px-4 py-24 text-center sm:px-6 sm:py-32"
       >
 
-        <div className="mx-auto max-w-lg rounded-3xl border border-white/[0.06] bg-neutral-900/45 p-10 shadow-2xl backdrop-blur-xl md:p-12">
+        <div className="mx-auto max-w-lg rounded-3xl border border-white/[0.06] bg-neutral-900/45 p-8 shadow-2xl backdrop-blur-xl sm:p-10 md:p-12">
 
-          <p className="mb-2 pl-[0.45em] font-mono text-[11px] uppercase tracking-[0.45em] text-cyan-400">
+          <p className="mb-2 pl-[0.45em] font-mono text-[11px] uppercase tracking-[0.4em] text-cyan-400 sm:tracking-[0.45em]">
             Inquiries
           </p>
 
@@ -562,7 +563,7 @@ export default async function Home() {
             Get in Touch
           </h2>
 
-          <p className="mb-9 text-[15px] font-light leading-7 tracking-wide text-neutral-400 md:text-base">
+          <p className="mb-8 text-[15px] font-light leading-7 tracking-wide text-neutral-400 sm:mb-9 md:text-base">
             For professional inquiries, production collaborations, or information regarding Starwynd.
           </p>
 
@@ -578,22 +579,22 @@ export default async function Home() {
       </section>
 
       {/* FLOATING KO-FI */}
-      <div className="fixed bottom-5 right-5 z-50 sm:bottom-6 sm:right-6">
+      <div className="fixed bottom-4 right-4 z-50 sm:bottom-5 sm:right-5 md:bottom-6 md:right-6">
 
         <a
           href="https://ko-fi.com/starwynd"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 rounded-full border border-white/10 bg-[#1da1d8]/80 px-4 py-3 text-[10px] font-bold uppercase tracking-wider text-white shadow-[0_8px_30px_rgba(0,0,0,0.5)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-[#29abe2] active:scale-95 sm:px-5"
+          className="flex items-center gap-1.5 rounded-full border border-white/10 bg-[#1da1d8]/80 px-3.5 py-2.5 text-[9px] font-bold uppercase tracking-wider text-white shadow-[0_8px_30px_rgba(0,0,0,0.5)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-[#29abe2] active:scale-95 sm:gap-2 sm:px-4 sm:py-3 sm:text-[10px] sm:px-5"
         >
-          <Coffee size={13} fill="currentColor" />
+          <Coffee size={12} fill="currentColor" />
           <span>Support on Ko-fi</span>
         </a>
 
       </div>
 
       {/* FOOTER */}
-      <footer className="relative z-10 border-t border-white/[0.04] px-6 py-12 text-center text-[11px] font-mono uppercase tracking-[0.2em] text-neutral-600">
+      <footer className="relative z-10 border-t border-white/[0.04] px-6 py-10 text-center text-[10px] font-mono uppercase tracking-[0.18em] text-neutral-600 sm:py-12 sm:text-[11px] sm:tracking-[0.2em]">
         © {new Date().getFullYear()} STARWYND. ALL RIGHTS RESERVED.
       </footer>
 
