@@ -8,10 +8,17 @@ import {
   ArrowUpRight,
   Music2,
   ShoppingBag,
+  Menu,
 } from "lucide-react";
 import { getFeaturedTracks } from "../lib/spotify-playlist";
 
 export const revalidate = 300;
+
+const FIRST_TRACK_URL =
+  "https://open.spotify.com/track/53OSXwWaDQdAWFvFR3dfwl";
+
+const PLAYLIST_URL =
+  "https://open.spotify.com/playlist/78oYJUxVuPHAAt7FJaLrZv";
 
 export default async function Home() {
   const featuredTracks = await getFeaturedTracks();
@@ -51,11 +58,12 @@ export default async function Home() {
             STARWYND
           </a>
 
-          <div className="flex items-center gap-3 text-[11px] font-mono uppercase tracking-[0.16em] text-neutral-400 sm:gap-5 sm:text-[12px] sm:tracking-[0.2em] md:gap-8">
+          {/* DESKTOP NAVIGATION */}
+          <div className="hidden items-center gap-5 text-[12px] font-mono uppercase tracking-[0.2em] text-neutral-400 md:flex md:gap-8">
 
             <a
               href="#about"
-              className="hidden transition-colors duration-300 hover:text-cyan-400 sm:block"
+              className="transition-colors duration-300 hover:text-cyan-400"
             >
               About
             </a>
@@ -69,14 +77,14 @@ export default async function Home() {
 
             <a
               href="#connect"
-              className="hidden transition-colors duration-300 hover:text-cyan-400 md:block"
+              className="transition-colors duration-300 hover:text-cyan-400"
             >
               Connect
             </a>
 
             <a
               href="#contact"
-              className="hidden transition-colors duration-300 hover:text-cyan-400 sm:block"
+              className="transition-colors duration-300 hover:text-cyan-400"
             >
               Contact
             </a>
@@ -85,13 +93,76 @@ export default async function Home() {
               href="https://ko-fi.com/starwynd"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 rounded-full border border-cyan-500/30 bg-cyan-500/[0.04] px-2.5 py-1.5 text-[11px] text-cyan-400 transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500/10 hover:text-white sm:gap-1.5 sm:px-3.5 sm:text-[12px]"
+              className="flex items-center gap-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/[0.04] px-3.5 py-1.5 text-[12px] text-cyan-400 transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500/10 hover:text-white"
             >
               Support
-              <ExternalLink size={10} className="sm:h-[11px] sm:w-[11px]" />
+              <ExternalLink size={11} />
             </a>
 
           </div>
+
+          {/* MOBILE NAVIGATION */}
+          <div className="flex items-center gap-3 md:hidden">
+
+            <a
+              href="#music"
+              className="font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-300 transition-colors duration-300 hover:text-cyan-400"
+            >
+              Music
+            </a>
+
+            <a
+              href="https://ko-fi.com/starwynd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-cyan-500/30 bg-cyan-500/[0.04] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-cyan-400 transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500/10 hover:text-white"
+            >
+              Support
+            </a>
+
+            <details className="relative">
+              <summary
+                className="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-neutral-300 transition-all duration-300 hover:border-cyan-400/40 hover:text-cyan-400 [&::-webkit-details-marker]:hidden"
+                aria-label="Open navigation menu"
+              >
+                <Menu size={18} />
+              </summary>
+
+              <div className="absolute right-0 top-12 w-44 overflow-hidden rounded-2xl border border-white/[0.08] bg-neutral-950/95 p-2 shadow-2xl backdrop-blur-xl">
+
+                <a
+                  href="#about"
+                  className="block rounded-xl px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-300 transition-colors hover:bg-white/[0.05] hover:text-cyan-400"
+                >
+                  About
+                </a>
+
+                <a
+                  href="#music"
+                  className="block rounded-xl px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-300 transition-colors hover:bg-white/[0.05] hover:text-cyan-400"
+                >
+                  Music
+                </a>
+
+                <a
+                  href="#connect"
+                  className="block rounded-xl px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-300 transition-colors hover:bg-white/[0.05] hover:text-cyan-400"
+                >
+                  Connect
+                </a>
+
+                <a
+                  href="#contact"
+                  className="block rounded-xl px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-300 transition-colors hover:bg-white/[0.05] hover:text-cyan-400"
+                >
+                  Contact
+                </a>
+
+              </div>
+            </details>
+
+          </div>
+
         </div>
       </nav>
 
@@ -130,7 +201,7 @@ export default async function Home() {
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
 
             <a
-              href="https://open.spotify.com/track/53OSXwWaDQdAWFvFR3dfwl"
+              href={FIRST_TRACK_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-full max-w-xs items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-[12px] font-bold uppercase tracking-widest text-black transition-all duration-300 hover:scale-105 hover:bg-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] sm:w-60 sm:px-8"
@@ -259,7 +330,7 @@ export default async function Home() {
             </div>
 
             <a
-              href="https://open.spotify.com/playlist/78oYJUxVuPHAAt7FJaLrZv"
+              href={FIRST_TRACK_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.025] px-5 py-2.5 font-mono text-[11px] uppercase tracking-widest text-neutral-400 transition-all duration-300 hover:border-cyan-400/40 hover:text-cyan-400"
@@ -275,7 +346,7 @@ export default async function Home() {
 
             <iframe
               style={{ borderRadius: "12px" }}
-              src="https://open.spotify.com/embed/playlist/78oYJUxVuPHAAt7FJaLrZv?utm_source=generator&theme=0"
+              src={`${PLAYLIST_URL}?utm_source=generator&theme=0`}
               width="100%"
               height="900"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -336,6 +407,7 @@ export default async function Home() {
                         </div>
 
                       </div>
+
                     </div>
 
                   </a>
@@ -387,7 +459,7 @@ export default async function Home() {
           <div className="mt-10 text-center sm:mt-12">
 
             <a
-              href="https://open.spotify.com/track/53OSXwWaDQdAWFvFR3dfwl"
+              href={FIRST_TRACK_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 font-mono text-[18px] font-medium uppercase tracking-[0.12em] text-neutral-300 transition-all duration-300 hover:text-cyan-400"
