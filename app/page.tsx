@@ -130,7 +130,7 @@ export default async function Home() {
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
 
             <a
-              href="https://open.spotify.com/artist/5qyoyaRsxcHKln2TxqoUgL"
+              href="https://open.spotify.com/track/53OSXwWaDQdAWFvFR3dfwl"
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-full max-w-xs items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-[12px] font-bold uppercase tracking-widest text-black transition-all duration-300 hover:scale-105 hover:bg-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] sm:w-60 sm:px-8"
@@ -277,11 +277,11 @@ export default async function Home() {
               style={{ borderRadius: "12px" }}
               src="https://open.spotify.com/embed/playlist/78oYJUxVuPHAAt7FJaLrZv?utm_source=generator&theme=0"
               width="100%"
-              height="380"
+              height="900"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
               title="Starwynd Spotify Playlist"
-              className="h-[300px] opacity-90 transition-opacity duration-300 hover:opacity-100 sm:h-[350px] md:h-[380px]"
+              className="h-[900px] opacity-90 transition-opacity duration-300 hover:opacity-100 sm:h-[650px] md:h-[380px]"
             />
 
           </div>
@@ -387,7 +387,7 @@ export default async function Home() {
           <div className="mt-10 text-center sm:mt-12">
 
             <a
-              href="https://open.spotify.com/playlist/78oYJUxVuPHAAt7FJaLrZv"
+              href="https://open.spotify.com/track/53OSXwWaDQdAWFvFR3dfwl"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 font-mono text-[18px] font-medium uppercase tracking-[0.12em] text-neutral-300 transition-all duration-300 hover:text-cyan-400"
@@ -585,7 +585,7 @@ export default async function Home() {
           href="https://ko-fi.com/starwynd"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1.5 rounded-full border border-white/10 bg-[#1da1d8]/80 px-3.5 py-2.5 text-[9px] font-bold uppercase tracking-wider text-white shadow-[0_8px_30px_rgba(0,0,0,0.5)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-[#29abe2] active:scale-95 sm:gap-2 sm:px-4 sm:py-3 sm:text-[10px] sm:px-5"
+          className="flex items-center gap-1.5 rounded-full border border-white/10 bg-[#1da1d8]/80 px-3.5 py-2.5 text-[9px] font-bold uppercase tracking-wider text-white shadow-[0_8px_30px_rgba(0,0,0,0.5)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-[#29abe2] active:scale-95 sm:gap-2 sm:px-5 sm:py-3 sm:text-[10px]"
         >
           <Coffee size={12} fill="currentColor" />
           <span>Support on Ko-fi</span>
