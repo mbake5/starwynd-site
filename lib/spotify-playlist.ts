@@ -27,12 +27,6 @@ async function getTrackMetadata(
   let artist = "Starwynd";
   let artworkUrl: string | null = null;
 
-  /*
-   * Get additional metadata from the public Spotify track page.
-   * This avoids the Spotify Web API and therefore does not require
-   * Spotify Premium or developer credentials.
-   */
-
   try {
     const response = await fetch(url, {
       next: {
@@ -63,12 +57,6 @@ async function getTrackMetadata(
         artworkUrl = ogImageMatch[1];
       }
 
-      /*
-       * Spotify's description often contains the artist name.
-       * Example formats can vary, so use the first useful artist
-       * string and fall back to the playlist row when possible.
-       */
-
       if (ogDescriptionMatch?.[1]) {
         const description = decodeHtmlEntities(ogDescriptionMatch[1]);
 
@@ -85,11 +73,6 @@ async function getTrackMetadata(
     console.error(`Spotify track metadata error for ${id}:`, error);
   }
 
-  /*
-   * If the track page did not provide artwork, use the artwork
-   * already present in the playlist row.
-   */
-
   if (!artworkUrl) {
     const artworkMatch = playlistRow.match(
       /src="(https:\/\/i\.scdn\.co\/image\/[^"]+)"/
@@ -103,14 +86,13 @@ async function getTrackMetadata(
     }
   }
 
-  /*
-   * Spotify's public playlist markup contains the artist link/text
-   * immediately around the track information. Use that as a fallback.
-   */
-
   if (artist === "Starwynd") {
+    /*
+     * Avoid the ES2018-only /s regex flag.
+     * [\s\S] matches across line breaks.
+     */
     const artistMatch = playlistRow.match(
-      /href="\/artist\/[^"]+"[^>]*>.*?<span[^>]*>(.*?)<\/span>/s
+      /href="\/artist\/[^"]+"[^>]*>[\s\S]*?<span[^>]*>([\s\S]*?)<\/span>/
     );
 
     if (artistMatch?.[1]) {
@@ -137,11 +119,6 @@ export async function getFeaturedTracks(): Promise<FeaturedTrack[]> {
   const playlistUrl = `https://open.spotify.com/playlist/${PLAYLIST_ID}`;
 
   try {
-    /*
-     * Do not send a browser-like User-Agent here.
-     * Spotify returns the useful playlist markup without it.
-     */
-
     const response = await fetch(playlistUrl, {
       next: {
         revalidate: 300,
@@ -157,12 +134,15 @@ export async function getFeaturedTracks(): Promise<FeaturedTrack[]> {
     const html = await response.text();
 
     /*
-     * Spotify's current public playlist page renders track rows
+     * Spotify's public playlist page currently renders track rows
      * with data-testid="track-row".
+     *
+     * [\s\S] is used instead of the ES2018 /s regex flag so the
+     * project can build with its current TypeScript target.
      */
 
     const rowRegex =
-      /<div\b[^>]*data-testid="track-row"[^>]*>.*?(?=<div\b[^>]*data-testid="track-row"|<\/body>)/gs;
+      /<div\b[^>]*data-testid="track-row"[^>]*>[\s\S]*?(?=<div\b[^>]*data-testid="track-row"|<\/body>)/g;
 
     const rows = [...html.matchAll(rowRegex)]
       .map((match) => match[0])
@@ -181,16 +161,7 @@ export async function getFeaturedTracks(): Promise<FeaturedTrack[]> {
 
       const id = idMatch[1];
 
-      /*
-       * Read metadata from the public Spotify track page.
-       */
-
       const track = await getTrackMetadata(id, row);
-
-      /*
-       * If the track page did not return the title, use the title
-       * from the playlist row.
-       */
 
       if (track.title === "Featured Track") {
         const titleMatch = row.match(
