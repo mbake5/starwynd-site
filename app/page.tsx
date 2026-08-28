@@ -20,6 +20,9 @@ const FIRST_TRACK_URL =
 const PLAYLIST_URL =
   "https://open.spotify.com/playlist/78oYJUxVuPHAAt7FJaLrZv";
 
+const SPOTIFY_EMBED_URL =
+  "https://open.spotify.com/embed/playlist/78oYJUxVuPHAAt7FJaLrZv?utm_source=generator&theme=0";
+
 export default async function Home() {
   const featuredTracks = await getFeaturedTracks();
 
@@ -330,7 +333,7 @@ export default async function Home() {
             </div>
 
             <a
-              href={FIRST_TRACK_URL}
+              href={PLAYLIST_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.025] px-5 py-2.5 font-mono text-[11px] uppercase tracking-widest text-neutral-400 transition-all duration-300 hover:border-cyan-400/40 hover:text-cyan-400"
@@ -346,13 +349,13 @@ export default async function Home() {
 
             <iframe
               style={{ borderRadius: "12px" }}
-              src={`${PLAYLIST_URL}?utm_source=generator&theme=0`}
+              src={SPOTIFY_EMBED_URL}
               width="100%"
-              height="900"
+              height="760"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
               title="Starwynd Spotify Playlist"
-              className="h-[900px] opacity-90 transition-opacity duration-300 hover:opacity-100 sm:h-[650px] md:h-[380px]"
+              className="h-[450px] opacity-90 transition-opacity duration-300 hover:opacity-100 sm:h-[450px] md:h-[760px]"
             />
 
           </div>
