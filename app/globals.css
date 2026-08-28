@@ -1,28 +1,59 @@
 @import "tailwindcss";
 
+:root {
+  background: #030303;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #030303;
+}
+
 body {
-  background: black;
+  min-height: 100%;
+  margin: 0;
+  background: #030303;
   color: white;
 }
 
-@keyframes slowZoom {
+/* Cinematic background movement */
+@keyframes cinematicZoom {
   0% {
-    transform: scale(1.1);
+    transform: scale(1.02);
   }
+
   100% {
-    transform: scale(1.5);
+    transform: scale(1.12);
   }
 }
 
-.animate-slowZoom {
-  animation: slowZoom 30s ease-in-out infinite alternate;
+.animate-cinematic-zoom {
+  animation: cinematicZoom 20s ease-in-out infinite alternate;
 }
 
+/* Slow record-style rotation */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+
+/* Subtle entrance animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(15px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -33,15 +64,40 @@ body {
   animation: fadeInUp 1s ease-out both;
 }
 
-html, body {
-  height: 100%;
-  scroll-behavior: smooth;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
+/*
+ * Desktop retains a cinematic scroll-snap feel,
+ * but mobile uses normal scrolling so the page
+ * does not fight the user's touch scrolling.
+ */
+@media (min-width: 768px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
 }
 
-/* Each section becomes a snap point */
-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+/* Prevent horizontal overflow from animations and wide effects */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
