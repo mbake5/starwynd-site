@@ -1,17 +1,28 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
+import "./synthpop.css";
 import { Analytics } from "@vercel/analytics/next";
+
+const displayFont = localFont({
+  src: [
+    { path: "./fonts/space-grotesk-500.ttf", weight: "500", style: "normal" },
+    { path: "./fonts/space-grotesk-600.ttf", weight: "600", style: "normal" },
+  ],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.starwyndmusic.com"),
 
   title: {
-    default: "Starwynd | Cinematic Electronic Music",
+    default: "Starwynd | Atmospheric Synthpop",
     template: "%s | Starwynd",
   },
 
   description:
-    "Starwynd creates cinematic, atmospheric electronic music rooted in emotional storytelling, human production, and immersive soundscapes.",
+    "Starwynd is a synthpop music group blending cinematic atmosphere, luminous synths, and emotional storytelling.",
 
   keywords: [
     "Starwynd",
@@ -28,9 +39,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Starwynd | Cinematic Electronic Music",
+    title: "Starwynd | Atmospheric Synthpop",
     description:
-      "Cinematic, atmospheric electronic music rooted in emotional storytelling and human production.",
+      "Atmospheric synthpop, cinematic production, and emotional storytelling from Starwynd.",
     url: "https://www.starwyndmusic.com",
     siteName: "Starwynd",
     type: "website",
@@ -47,9 +58,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Starwynd | Cinematic Electronic Music",
+    title: "Starwynd | Atmospheric Synthpop",
     description:
-      "Cinematic, atmospheric electronic music rooted in emotional storytelling and human production.",
+      "Atmospheric synthpop, cinematic production, and emotional storytelling from Starwynd.",
     images: ["/images/banner.webp"],
   },
 
@@ -73,16 +84,16 @@ export default function RootLayout({
     "@type": "MusicGroup",
     name: "Starwynd",
     url: "https://www.starwyndmusic.com",
-    genre: ["Atmospheric Pop", "Electronic", "Cinematic"],
+    genre: ["Synthpop", "Electronic", "Cinematic"],
     sameAs: [
       "https://open.spotify.com/artist/5qyoyaRsxcHKln2TxqoUgL",
-      "https://www.youtube.com/channel/UCGNTkRr6hq3KRmKNvrSVxBg",
+      "https://www.youtube.com/channel/UCpCI4H8FllHtTgq3MDB9Y5w",
       "https://ko-fi.com/starwynd",
     ],
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className={displayFont.variable}>
       <body>
         {children}
 

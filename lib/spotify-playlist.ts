@@ -28,9 +28,7 @@ export async function getFeaturedTracks(): Promise<FeaturedTrack[]> {
     });
 
     if (!response.ok) {
-      throw new Error(
-        `Spotify playlist request failed: ${response.status}`
-      );
+      throw new Error(`Spotify playlist request failed: ${response.status}`);
     }
 
     const html = await response.text();
@@ -45,13 +43,13 @@ export async function getFeaturedTracks(): Promise<FeaturedTrack[]> {
 
     const rows = [...html.matchAll(rowRegex)]
       .map((match) => match[0])
-      .slice(0, 3);
+      .slice(0, 50);
 
     const tracks: FeaturedTrack[] = [];
 
     for (const row of rows) {
       const idMatch = row.match(
-        /(?:href="\/track\/|spotify:track:)([A-Za-z0-9]+)/
+        /(?:href="\/track\/|spotify:track:)([A-Za-z0-9]+)/,
       );
 
       if (!idMatch) {
@@ -61,28 +59,23 @@ export async function getFeaturedTracks(): Promise<FeaturedTrack[]> {
       const id = idMatch[1];
 
       const titleMatch = row.match(
-        /<span[^>]*class="[^"]*line-clamp[^"]*"[^>]*>(.*?)<\/span>/
+        /<span[^>]*class="[^"]*line-clamp[^"]*"[^>]*>(.*?)<\/span>/,
       );
 
       const ariaLabelMatch = row.match(
-        /data-testid="track-row"[^>]*aria-label="([^"]+)"/
+        /data-testid="track-row"[^>]*aria-label="([^"]+)"/,
       );
 
       const artworkMatch = row.match(
-        /src="(https:\/\/i\.scdn\.co\/image\/[^"]+)"/
+        /src="(https:\/\/i\.scdn\.co\/image\/[^"]+)"/,
       );
 
       const title = decodeHtmlEntities(
-        titleMatch?.[1] ||
-          ariaLabelMatch?.[1] ||
-          "Featured Track"
+        titleMatch?.[1] || ariaLabelMatch?.[1] || "Featured Track",
       );
 
       const artworkUrl = artworkMatch?.[1]
-        ? artworkMatch[1].replace(
-            "ab67616d00004851",
-            "ab67616d0000b273"
-          )
+        ? artworkMatch[1].replace("ab67616d00004851", "ab67616d0000b273")
         : null;
 
       tracks.push({
@@ -98,18 +91,11 @@ export async function getFeaturedTracks(): Promise<FeaturedTrack[]> {
      * Fallback if Spotify changes the track-row markup.
      */
 
-    if (tracks.length < 3) {
-      const fallbackIds = [
-        ...html.matchAll(
-          /spotify:track:([A-Za-z0-9]+)/g
-        ),
-      ]
+    if (tracks.length < 4) {
+      const fallbackIds = [...html.matchAll(/spotify:track:([A-Za-z0-9]+)/g)]
         .map((match) => match[1])
-        .filter(
-          (id, index, array) =>
-            array.indexOf(id) === index
-        )
-        .slice(0, 3);
+        .filter((id, index, array) => array.indexOf(id) === index)
+        .slice(0, 50);
 
       for (const id of fallbackIds) {
         if (tracks.some((track) => track.id === id)) {
@@ -126,7 +112,7 @@ export async function getFeaturedTracks(): Promise<FeaturedTrack[]> {
       }
     }
 
-    return tracks.slice(0, 3);
+    return tracks.slice(0, 50);
   } catch (error) {
     console.error("Unable to read Spotify playlist:", error);
     return [];
