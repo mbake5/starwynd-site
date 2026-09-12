@@ -164,9 +164,6 @@ export default function Experience({ tracks, videos, videoDay }: {
               </a>
             ))}
           </nav>
-          <a className="header-contact" href="#contact">
-            Let’s connect <ArrowUpRight size={15} />
-          </a>
           <button
             ref={menuButton}
             className="menu-button"
@@ -297,9 +294,6 @@ export default function Experience({ tracks, videos, videoDay }: {
                     ? "RESUME MOTION"
                     : "PAUSE MOTION"}
               </button>
-              <span className="scroll-hint">
-                SCROLL TO DISCOVER <ArrowDown size={12} />
-              </span>
             </div>
           </section>
 
@@ -425,7 +419,7 @@ export default function Experience({ tracks, videos, videoDay }: {
                   </div>
                   {tracks.length > 4 && (
                     <div className="track-browse">
-                      <span>{tracks.length} releases · Scroll for more</span>
+                      <span>{tracks.length} releases</span>
                       <div>
                         <button
                           aria-label="Previous four releases"

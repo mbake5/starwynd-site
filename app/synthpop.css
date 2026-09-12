@@ -587,7 +587,23 @@ footer > span,
 footer > a:last-child {
   color: #b8afca;
 }
+/* Align desktop navigation with the featured artwork below it. */
+@media (min-width: 761px) {
+  .site-header {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    column-gap: 72px;
+  }
+  .desktop-nav {
+    width: 100%;
+    max-width: 420px;
+    justify-self: end;
+    justify-content: center;
+  }
+  .desktop-nav a { white-space: nowrap; }
+}
 @media (max-width: 1100px) {
+  .site-header { column-gap: 36px; }
   .site-header,
   footer {
     padding-inline: 5%;
@@ -608,7 +624,7 @@ footer > a:last-child {
 }
 @media (min-width: 761px) and (max-width: 1000px) {
   .header-contact { display: none; }
-  .desktop-nav { margin-left: auto; }
+  .desktop-nav { margin-left: 0; }
   .desktop-nav a { white-space: nowrap; }
 }
 @media (max-width: 760px) {

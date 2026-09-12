@@ -91,7 +91,7 @@ export default function FeaturedVideo({ videos, day, still }: { videos: ChannelV
         </div>
         {videos.length > 3 && (
           <div className="track-browse">
-            <span>Scroll to explore all videos</span>
+            <span>{videos.length} videos</span>
             <div>
               <button aria-label="Previous videos" disabled={listPosition.start} onClick={() => list.current?.scrollBy({ top: -list.current.clientHeight, behavior: still ? "instant" : "smooth" })}><ChevronUp size={20} /></button>
               <button aria-label="Next videos" disabled={listPosition.end} onClick={() => list.current?.scrollBy({ top: list.current.clientHeight, behavior: still ? "instant" : "smooth" })}><ChevronDown size={20} /></button>
