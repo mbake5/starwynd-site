@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
-import "./synthpop.css";
+import "./base.css";
 import { Analytics } from "@vercel/analytics/next";
 
 const displayFont = localFont({

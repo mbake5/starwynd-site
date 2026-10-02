@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* Site-wide base. The home page's own styles live in app/redesign/redesign.css,
+   scoped to .sw2. */
+
+:root {
+  color-scheme: dark;
+  background: #0b0c19;
+  color: #f3efff;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+body {
+  margin: 0;
+  background: #0b0c19;
+  color: #f3efff;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+a {
+  text-decoration: none;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #7edff9;
+  outline-offset: 4px;
+}
+::selection {
+  background: #8450b8;
+  color: white;
+}
+button svg,
+a svg {
+  flex-shrink: 0;
+}
+footer {
+  border-top: 1px solid #302c47;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

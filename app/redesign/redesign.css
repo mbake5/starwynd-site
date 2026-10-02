@@ -1,5 +1,5 @@
-/* Starwynd redesign preview. Everything is scoped to .sw2 so the current
-   home page styles and these never affect each other. */
+/* Starwynd home page. Everything is scoped to .sw2; site-wide base styles
+   are in app/base.css. */
 
 .sw2 {
   --bg: #05061a;
