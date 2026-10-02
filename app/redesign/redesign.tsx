@@ -8,6 +8,7 @@ import Sky from "./sky";
 import DockPlayer, { type PlayerCommand, type PlayerStatus } from "./dock-player";
 import VideoSection from "./video-section";
 import EmailCard from "./email-card";
+import PlatformIcon from "./platform-icon";
 import { usePrefersReducedMotion } from "../use-prefers-reduced-motion";
 import type { FeaturedTrack } from "../../lib/spotify-playlist";
 import type { ChannelVideo } from "../../lib/youtube-rotation";
@@ -618,6 +619,7 @@ export default function Redesign({ tracks, videos, videoDay }: {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
+                    <PlatformIcon name={platform.name} className="sw-platform-icon" />
                     <span className="sw-platform-name">{platform.name}</span>
                     <span className="sw-platform-action">{platform.action}</span>
                     <ArrowUpRight className="sw-platform-arrow" size={22} />

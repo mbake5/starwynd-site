@@ -1744,17 +1744,12 @@
 .sw2 .sw-platform:hover {
   box-shadow: 0 30px 70px -30px color-mix(in srgb, var(--brand) 75%, transparent);
 }
-.sw2 .sw-platform-name::before {
-  content: "";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin-right: 12px;
-  border-radius: 50%;
-  background: var(--brand);
-  box-shadow: 0 0 14px var(--brand);
-  vertical-align: middle;
-  transform: translateY(-2px);
+.sw2 .sw-platform-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 18px;
+  color: var(--brand);
+  filter: drop-shadow(0 0 14px color-mix(in srgb, var(--brand) 55%, transparent));
 }
 .sw2 .sw-platform:hover .sw-platform-arrow {
   color: var(--brand);
@@ -2049,5 +2044,8 @@
   .sw2 .sw-platform {
     min-height: 0;
     gap: 20px;
+  }
+  .sw2 .sw-platform-icon {
+    margin-bottom: 0;
   }
 }
