@@ -38,6 +38,8 @@ export const metadata: Metadata = {
     canonical: "https://www.starwyndmusic.com",
   },
 
+  // Share image and icons come from app/opengraph-image.jpg, favicon.ico,
+  // icon.png and apple-icon.png, which Next.js sizes and links automatically.
   openGraph: {
     title: "Starwynd | Atmospheric Synthpop",
     description:
@@ -46,14 +48,6 @@ export const metadata: Metadata = {
     siteName: "Starwynd",
     type: "website",
     locale: "en_US",
-    images: [
-      {
-        url: "/images/banner.webp",
-        width: 1200,
-        height: 750,
-        alt: "Starwynd",
-      },
-    ],
   },
 
   twitter: {
@@ -61,11 +55,6 @@ export const metadata: Metadata = {
     title: "Starwynd | Atmospheric Synthpop",
     description:
       "Atmospheric synthpop, cinematic production, and emotional storytelling from Starwynd.",
-    images: ["/images/banner.webp"],
-  },
-
-  icons: {
-    icon: "/favicon.ico",
   },
 
   robots: {
@@ -84,9 +73,12 @@ export default function RootLayout({
     "@type": "MusicGroup",
     name: "Starwynd",
     url: "https://www.starwyndmusic.com",
+    image: "https://www.starwyndmusic.com/opengraph-image.jpg",
     genre: ["Synthpop", "Electronic", "Cinematic"],
     sameAs: [
       "https://open.spotify.com/artist/5qyoyaRsxcHKln2TxqoUgL",
+      "https://music.apple.com/us/artist/starwynd/1841275156",
+      "https://music.amazon.com/artists/B0FS12VR2X/starwynd",
       "https://www.youtube.com/channel/UCpCI4H8FllHtTgq3MDB9Y5w",
       "https://ko-fi.com/starwynd",
     ],

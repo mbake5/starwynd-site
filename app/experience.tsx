@@ -2,12 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import {
-  AnimatePresence,
-  motion,
-  MotionConfig,
-  useReducedMotion,
-} from "framer-motion";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -27,6 +22,7 @@ import {
 import SpotifyPlayer from "./spotify-player";
 import ContactEmail from "./contact-email";
 import FeaturedVideo from "./featured-video";
+import { usePrefersReducedMotion } from "./use-prefers-reduced-motion";
 import type { FeaturedTrack } from "../lib/spotify-playlist";
 import type { ChannelVideo } from "../lib/youtube-rotation";
 
@@ -40,7 +36,7 @@ const platforms = [
   ],
   [
     "Amazon Music",
-    "https://music.amazon.co.uk/artists/B0FS14KVWX/starwynd",
+    "https://music.amazon.com/artists/B0FS12VR2X/starwynd",
     "03",
   ],
   ["YouTube", "https://www.youtube.com/channel/UCpCI4H8FllHtTgq3MDB9Y5w", "04"],
@@ -65,22 +61,16 @@ export default function Experience({ tracks, videos, videoDay }: {
   const [menuOpen, setMenuOpen] = useState(false);
   const [playerOpen, setPlayerOpen] = useState(true);
   const [paused, setPaused] = useState(false);
-  const reduced = useReducedMotion();
+  const reduced = usePrefersReducedMotion();
   const still = paused || !!reduced;
   const track = tracks[selected];
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    if (still) return;
+    if (still || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // The hero entrance is a CSS animation (synthpop.css): running it here
+    // hid the already-painted headline once scripts loaded, so it blinked.
     const ctx = gsap.context(() => {
-      gsap.from(".hero-enter", {
-        y: 36,
-        opacity: 0,
-        stagger: 0.13,
-        duration: 1.2,
-        ease: "power3.out",
-        clearProps: "all",
-      });
       gsap.utils.toArray<HTMLElement>(".reveal").forEach((el) => {
         gsap.from(el, {
           y: 45,
@@ -597,7 +587,7 @@ export default function Experience({ tracks, videos, videoDay }: {
                   <span>{name}</span>
                   <small>
                     {name === "YouTube"
-                      ? "Watch & Subscribe"
+                      ? "WATCH & SUBSCRIBE"
                       : "LISTEN & FOLLOW"}
                   </small>
                   <ArrowUpRight />
